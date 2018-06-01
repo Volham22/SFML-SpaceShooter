@@ -18,7 +18,7 @@ You will need :
 
 First you need to download the source code, if you don't :
 ```
-$ git clone http://109.25.172.77:81/git/Volham/SFML-SpaceShooter.git
+$ git clone https://github.com/Volham22/SFML-SpaceShooter.git
 ```
 Once the source code is downloaded, use cmake to create a makefile :
 ```
