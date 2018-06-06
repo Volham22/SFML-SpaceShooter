@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <iostream>
-#include <time.h>
 
 #define MAX_X_TEXTURE 4
 #define MAX_Y_TEXTURE 4

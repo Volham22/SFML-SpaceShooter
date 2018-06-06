@@ -24,7 +24,7 @@ Ennemy::Ennemy()
         s_Ennemy.setScale(20.0, 20.0);
     }
 
-    s_Ennemy.setPosition(Vector2f(getRandomInt(800), 50.0));
+    s_Ennemy.setPosition(Vector2f(getRandomInt(800), 50.0)); // Set a random position
 }
 
 void Ennemy::update()
@@ -65,6 +65,7 @@ Difficulty::Difficulty()
 
 void Difficulty::updateDifficulty()
 {
+    /* Updated Ennemy speed according to the wave number */
     if(_wavesNumber > wavesNbr)
     {
         wavesNbr++;
@@ -73,19 +74,16 @@ void Difficulty::updateDifficulty()
         {
             currentDifficulty++;
             currentSpeed += 0;
-            std::cout << "Difficulty now at " << currentDifficulty << std::endl;
         }
         else if(wavesNbr > 10 && wavesNbr < 50)
         {
             currentDifficulty++;
             currentSpeed += 2;
-            std::cout << "Difficulty now at " << currentDifficulty << std::endl;
         }
         else
         {
             currentDifficulty++;
             currentSpeed += 5;
-            std::cout << "Difficulty now at " << currentDifficulty << std::endl;
         }
     }
 }
@@ -111,6 +109,11 @@ EnnemySystem::EnnemySystem(std::vector<Bullet>* bulletsList, unsigned int* bulle
 
 void EnnemySystem::update(RenderWindow* window)
 {
+    /*
+     * Check if an Ennemy is out of Window or Shooted
+     * If an Ennemy if is shooted -> launch death Animation
+     * Else the ennemy is out of window -> delete it
+     */
     for(unsigned int i = 0; i<EnnemyList.size(); i++)
     {
         for(unsigned int j = 0; j<BulletsList->size(); j++)
@@ -146,6 +149,7 @@ void EnnemySystem::update(RenderWindow* window)
         }
     }
 
+    /* If there is no Ennemy left -> Create New according to the Wave Number */
     if(EnnemyNbr <= 0)
     {
         _wavesNumber++;

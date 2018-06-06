@@ -66,7 +66,7 @@ int main()
 
         /* Drawing */
         app.clear(Color::Transparent);
-        //app.draw(background);
+        app.draw(background);
         player.drawPlayer(app);
         bullets.drawBullets(app);
         score.draw(app);
