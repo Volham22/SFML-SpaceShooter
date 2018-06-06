@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-#include <thread>
 #include "include/Bullet.h"
 #include "include/Animation.h"
 
