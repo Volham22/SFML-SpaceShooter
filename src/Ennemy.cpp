@@ -5,7 +5,6 @@
 unsigned int _wavesNumber = 0;
 #endif
 
-#warning "Animations are NOT WORKING"
 
 int getRandomInt(int max)
 {
@@ -191,6 +190,8 @@ void EnnemySystem::drawEnnemies(RenderWindow &window)
         EnnemyList[i]->drawEnnemy(window);
         EnnemyNbr++;
     }
+
+    Animations.drawAnimations();
 }
 
 int EnnemySystem::getEnnemyNbr()
