@@ -10,20 +10,22 @@ using namespace sf;
 enum WindowType 
 {
     StartWindow,
-    PlayWindow
+    PlayWindow,
+    DeathScreenWindow
 };
 
 class WindowGestion
 {
     public:
-        WindowGestion(RenderWindow &startMenu, RenderWindow &game);
+        WindowGestion(RenderWindow &startMenu, RenderWindow &game, RenderWindow &deathWindow);
         bool Show(WindowType type);
         RenderWindow* getWindow(WindowType type);
         ~WindowGestion();
 
     private:
-        RenderWindow *StartMenu = NULL;
-        RenderWindow *Game = NULL;
+        RenderWindow *StartMenu = nullptr;
+        RenderWindow *Game = nullptr;
+        RenderWindow *DeathWindow = nullptr;
 };
 
 #endif

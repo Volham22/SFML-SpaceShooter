@@ -5,7 +5,6 @@ project(SpaceShooter)
 set(SRC
     src/Background.cpp
     src/Bullet.cpp
-    src/deathScreen.cpp
     src/Ennemy.cpp
     src/gameInputs.cpp
     src/main.cpp

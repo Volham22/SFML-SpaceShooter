@@ -83,3 +83,20 @@ FloatRect Player::getBound()
 {
     return s_player.getGlobalBounds();
 }
+
+bool Player::isDead(std::vector<Ennemy*>* ennemyList)
+{
+    for(int i = 0; i<ennemyList->size(); i++)
+    {
+        if((*ennemyList)[i]->getBound().intersects(s_player.getGlobalBounds()))
+        {
+            delete((*ennemyList)[i]);
+            
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}

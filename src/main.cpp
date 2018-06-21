@@ -6,7 +6,6 @@
 #include "include/Ennemy.h"
 #include "include/Background.h"
 #include "include/Score.h"
-#include "include/deathScreen.h"
 #include "include/menu/Menus.h"
 #include "include/menu/WindowGestion.h"
 
@@ -15,8 +14,9 @@ using namespace sf;
 int main()
 {
     RenderWindow menu(VideoMode(800, 600), "Space Shooter -> Menu");
+    RenderWindow death(VideoMode(800, 600), "Space Shooter -> You died !");
     RenderWindow app(VideoMode(800, 600), "Space Shooter");
-    WindowGestion windows(menu, app);
+    WindowGestion windows(menu, app, death);
 
     if(!windows.Show(StartWindow))
     {
@@ -73,6 +73,14 @@ int main()
         ennemy.drawEnnemies(app);
         app.display();
 
-        isDead(player.getBound(), ennemy.getEnnemyList(), app);
+        /* Checking if player is dead
+         * And react according to the user's choice
+         */
+        #warning Not the best way to close
+        if(player.isDead(ennemy.getEnnemyList()))
+        {
+            windows.Show(DeathScreenWindow);
+            return 0;
+        }
     }
 }

@@ -4,6 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <iostream>
+#include <vector>
+#include "include/Ennemy.h"
 
 using namespace sf;
 
@@ -21,6 +23,7 @@ class Player
         void moveRight();
         void drawPlayer(RenderWindow &window);
         void updateSpeed();
+        bool isDead(std::vector<Ennemy*>* ennemyList);
         Vector2f getPosition();
         FloatRect getBound();
 
