@@ -86,6 +86,11 @@ void AnimationGestion::addAnimation(Sprite* body)
 void AnimationGestion::drawAnimations()
 {
     /* Drawing Animations */
-    for(int i = 0; i< Animated.size(); i++)
+    for(unsigned int i = 0; i< Animated.size(); i++)
         Animated[i]->drawAnimation();
+}
+
+void AnimationGestion::clearAnimation()
+{
+    Animated.clear();
 }

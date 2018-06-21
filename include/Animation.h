@@ -39,6 +39,7 @@ class AnimationGestion
     public:
         AnimationGestion(RenderWindow *window = nullptr);
         void updateAnimation();
+        void clearAnimation();
         void addAnimation(Sprite* body);
         void drawAnimations();
 

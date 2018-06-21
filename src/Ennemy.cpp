@@ -123,7 +123,7 @@ void EnnemySystem::update(RenderWindow* window)
                 Killed++;
                 
                 std::cout << "Bullet collision with an ennemy! Deleting Ennemy" << std::endl;
-                deleteEnnemy(EnnemyList[i], i, window, Shooted);
+                deleteEnnemy(EnnemyList[i], i, Shooted, window);
                 EnnemyNbr = EnnemyList.size();
 
                 BulletsList->erase(BulletsList->begin() + j);
@@ -142,7 +142,7 @@ void EnnemySystem::update(RenderWindow* window)
         if(EnnemyList[i]->getPosition().y >= 600)
         {
             std::cout << "Ennemy out of window !  Deleting" << std::endl;
-            deleteEnnemy(EnnemyList[i], i, window, OutOfWindow);
+            deleteEnnemy(EnnemyList[i], i, OutOfWindow, window);
             EnnemyNbr = EnnemyList.size();
             std::cout << EnnemyNbr << " left." << std::endl;
             return;
@@ -173,7 +173,7 @@ void EnnemySystem::createEnnemy(unsigned int number)
     }
 }
 
-void EnnemySystem::deleteEnnemy(Ennemy* e, unsigned int position, RenderWindow* window, killReason reason)
+void EnnemySystem::deleteEnnemy(Ennemy* e, unsigned int position, killReason reason, RenderWindow* window)
 {
     if(reason == OutOfWindow)
     {
@@ -196,6 +196,16 @@ void EnnemySystem::drawEnnemies(RenderWindow &window)
     }
 
     Animations.drawAnimations();
+}
+
+void EnnemySystem::resetEnnemy()
+{
+    Killed = 0;
+    _wavesNumber = 0;
+    EnnemyNbr = 0;
+
+    Animations.clearAnimation();
+    EnnemyList.clear();
 }
 
 int EnnemySystem::getEnnemyNbr()

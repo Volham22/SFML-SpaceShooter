@@ -28,9 +28,9 @@ class Bullet : public Drawable, public Transformable
 class BulletSystem
 {
     public:
-        //BulletSystem();
         void addBullet(Vector2f playerPosition);
         void updateBulletCount();
+        void clearBullets();
         void drawBullets(RenderWindow &window);
         unsigned int* getBulletNumber();
         std::vector<Bullet>* getList();

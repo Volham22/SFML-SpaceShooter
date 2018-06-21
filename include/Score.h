@@ -15,7 +15,7 @@ class TextScore
         void draw(RenderWindow &window);
     
     private:
-        unsigned int* Score = NULL;
+        unsigned int* Score = nullptr;
         Font t_font;
         Text text;
 };

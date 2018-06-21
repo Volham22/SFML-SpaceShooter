@@ -38,6 +38,14 @@ Vector2f Bullet::getPosition() const
     return bulletCoords[1].position;
 }
 
+void Bullet::draw(RenderTarget &target, RenderStates states) const
+{
+    states.transform *= getTransform();
+    states.texture = NULL;
+
+    target.draw(bulletCoords, states);
+}
+
 void BulletSystem::addBullet(Vector2f playerPosition)
 {
     if(BulletCount < BULLETS_MAX_AMOUNT)
@@ -57,7 +65,6 @@ void BulletSystem::updateBulletCount()
         {
             BulletContainer.erase(BulletContainer.begin() + i);
             BulletCount--;
-            //std::cout << "Bullet deleted" << std::endl;
         }
     }
 }
@@ -68,6 +75,11 @@ void BulletSystem::drawBullets(RenderWindow &window)
         window.draw(BulletContainer[i]);
 }
 
+void BulletSystem::clearBullets()
+{
+    BulletContainer.clear();
+}
+
 unsigned int* BulletSystem::getBulletNumber()
 {
     return &BulletCount;
@@ -76,12 +88,4 @@ unsigned int* BulletSystem::getBulletNumber()
 std::vector<Bullet>* BulletSystem::getList()
 {
     return &BulletContainer;
-}
-
-void Bullet::draw(RenderTarget &target, RenderStates states) const
-{
-    states.transform *= getTransform();
-    states.texture = NULL;
-
-    target.draw(bulletCoords, states);
 }

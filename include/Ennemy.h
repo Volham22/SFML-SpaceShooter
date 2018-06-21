@@ -53,6 +53,7 @@ class EnnemySystem
     public:
         EnnemySystem(std::vector<Bullet>* bulletsList, unsigned int* bulletCount, RenderWindow *window);
         void update(RenderWindow* window);
+        void resetEnnemy();
         int getEnnemyNbr();
         void drawEnnemies(RenderWindow &window);
         unsigned int* getKilledNbr();
@@ -61,7 +62,7 @@ class EnnemySystem
     private:
         bool isCollided(FloatRect a, Vector2f b);
         void createEnnemy(unsigned int number);
-        void deleteEnnemy(Ennemy* e, unsigned int position, RenderWindow* window, killReason reason);
+        void deleteEnnemy(Ennemy* e, unsigned int position, killReason reason, RenderWindow* window);
 
         std::vector<Ennemy*> EnnemyList;
         std::vector<Bullet>* BulletsList = nullptr;

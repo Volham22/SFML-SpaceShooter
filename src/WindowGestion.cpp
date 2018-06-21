@@ -26,6 +26,9 @@ bool WindowGestion::Show(WindowType type)
             Game->setVisible(false);
             Game->setActive(false);
 
+            DeathWindow->setVisible(false);
+            DeathWindow->setActive(false);
+
             StartMenu->setVisible(true);
             StartMenu->setActive(true);
 
@@ -41,6 +44,9 @@ bool WindowGestion::Show(WindowType type)
         {
             StartMenu->setVisible(false);
             StartMenu->setActive(false);
+
+            DeathWindow->setVisible(false);
+            DeathWindow->setActive(false);
 
             Game->setVisible(true);
             Game->setActive(true);

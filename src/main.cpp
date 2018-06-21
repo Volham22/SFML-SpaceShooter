@@ -76,11 +76,21 @@ int main()
         /* Checking if player is dead
          * And react according to the user's choice
          */
-        #warning Not the best way to close
         if(player.isDead(ennemy.getEnnemyList()))
         {
-            windows.Show(DeathScreenWindow);
-            return 0;
+            if(windows.Show(DeathScreenWindow))
+            {
+                ennemy.resetEnnemy();
+                bullets.clearBullets();
+                windows.Show(PlayWindow);
+            }
+            else
+            {
+                ennemy.resetEnnemy();
+                bullets.clearBullets();
+                windows.~WindowGestion();
+                return 0;
+            }
         }
     }
 }
