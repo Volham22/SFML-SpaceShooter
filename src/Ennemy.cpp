@@ -22,6 +22,8 @@ Ennemy::Ennemy()
     {
         s_Ennemy.setColor(Color::Blue);
         s_Ennemy.setScale(20.0, 20.0);
+
+        std::cout << "Can't open Ennemy texture, using default values." << std::endl;
     }
 
     s_Ennemy.setPosition(Vector2f(getRandomInt(800), 50.0)); // Set a random position
@@ -122,13 +124,11 @@ void EnnemySystem::update(RenderWindow* window)
             {
                 Killed++;
                 
-                std::cout << "Bullet collision with an ennemy! Deleting Ennemy" << std::endl;
                 deleteEnnemy(EnnemyList[i], i, Shooted, window);
                 EnnemyNbr = EnnemyList.size();
 
                 BulletsList->erase(BulletsList->begin() + j);
                 *p_BulletCount = BulletsList->size();
-                std::cout << EnnemyNbr << " left." << std::endl;
 
                 return;
             }
@@ -141,10 +141,8 @@ void EnnemySystem::update(RenderWindow* window)
 
         if(EnnemyList[i]->getPosition().y >= 600)
         {
-            std::cout << "Ennemy out of window !  Deleting" << std::endl;
             deleteEnnemy(EnnemyList[i], i, OutOfWindow, window);
             EnnemyNbr = EnnemyList.size();
-            std::cout << EnnemyNbr << " left." << std::endl;
             return;
         }
     }
@@ -153,7 +151,6 @@ void EnnemySystem::update(RenderWindow* window)
     if(EnnemyNbr <= 0)
     {
         _wavesNumber++;
-        std::cout << "New waves n° " << _wavesNumber << std::endl;
         
         if(_wavesNumber * 2 > ENNEMY_LIMIT)
             createEnnemy(ENNEMY_LIMIT);

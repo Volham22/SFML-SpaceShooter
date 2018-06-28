@@ -2,6 +2,7 @@
 #define HEADERS_BACKGROUND
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 #define WIDTH 600.0
 #define HEIGHT 800.0

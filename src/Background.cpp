@@ -17,7 +17,8 @@ Background::Background()
 
     coords = arr;
 
-    texture.loadFromFile("resources/background.jpg");
+    if(!texture.loadFromFile("resources/background.jpg"))
+        std::cout << "Unable to load background Textures." << std::endl;
 }
 
 void Background::draw(RenderTarget &target, RenderStates states) const

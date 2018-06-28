@@ -6,8 +6,17 @@ Player::Player(int maxspeed)
 
     s_player.setPosition(600.0f, 550.0f);
 
-    t_player.loadFromFile("resources/player.png");
-    s_player.setTexture(t_player);
+    if(t_player.loadFromFile("resources/player.png"))
+    {
+        s_player.setTexture(t_player);
+    }
+    else
+    {
+        std::cout << "Can't load player textures, using default values." << std::endl;
+
+        s_player.setColor(Color::Yellow);
+        s_player.setScale(50.0f, 50.0f);
+    }
 }
 
 void Player::moveLeft()
@@ -42,8 +51,6 @@ void Player::drawPlayer(RenderWindow &window)
 
 void Player::updateSpeed()
 {
-    //std::cout << "Current speed : " << currentSpeed << " of max " << maxSpeed << std::endl;
-
     if(clockSpeed.getElapsedTime() >= speedDecrease && currentSpeed > 0)
     {
         currentSpeed -= 0.5f;
