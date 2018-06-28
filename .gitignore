@@ -1,11 +1,13 @@
 # Files and folders ignored by git
 
+# Spaceshooter and project files :
 /SpaceShooter
 /Spaceshooter
 .vscode/
 *.o
+*.sav
 
-# Ignore CMake Files
+# Ignore CMake Files :
 .CMakeFiles/
 /cmake*
 /CMake*

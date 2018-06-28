@@ -83,11 +83,13 @@ int main()
                 ennemy.resetEnnemy();
                 bullets.clearBullets();
                 windows.Show(PlayWindow);
+                score.saveBestScore();
             }
             else
             {
                 ennemy.resetEnnemy();
                 bullets.clearBullets();
+                score.saveBestScore();
                 windows.~WindowGestion();
                 return 0;
             }
