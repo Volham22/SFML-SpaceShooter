@@ -6,6 +6,7 @@
 .vscode/
 *.o
 *.sav
+*.txt
 
 # Ignore CMake Files :
 .CMakeFiles/

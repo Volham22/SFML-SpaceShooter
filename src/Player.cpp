@@ -97,13 +97,12 @@ bool Player::isDead(std::vector<Ennemy*>* ennemyList)
     {
         if((*ennemyList)[i]->getBound().intersects(s_player.getGlobalBounds()))
         {
+            ennemyList->erase(ennemyList->begin() + i);
             delete((*ennemyList)[i]);
-            
+
             return true;
         }
-        else
-        {
-            return false;
-        }
     }
+
+    return false;
 }
