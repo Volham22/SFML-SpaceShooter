@@ -29,4 +29,8 @@ keysPressed isKeyPressed()
         keys.escKey = true;
         return keys;
     }
+    else
+    {
+        return keys;
+    }
 }

@@ -69,6 +69,9 @@ bool WindowGestion::Show(WindowType type)
             else
                 return false;
         }
+
+        default:
+            return true;
     }
 }
 
@@ -84,6 +87,9 @@ RenderWindow* WindowGestion::getWindow(WindowType type)
         
         case DeathScreenWindow:
             return DeathWindow;
+
+        default:
+            return NULL;
     }
 }
 

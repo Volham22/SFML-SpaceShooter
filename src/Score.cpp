@@ -7,7 +7,7 @@ TextScore::TextScore(unsigned int* score)
     t_font.loadFromFile("resources/arial.ttf");
 
     text.setFont(t_font);
-    text.setColor(Color::Red); // Deprecated declaration with the lastest SFML version
+    text.setFillColor(Color::Red);
     text.setString("Killed : 0");
 
     /* Read best Score from save File */

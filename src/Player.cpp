@@ -77,7 +77,7 @@ outOfWindow Player::isOutOfWindow()
             return limits;
         }
     }
-    else
+    
         return limits;
 }
 
@@ -93,7 +93,7 @@ FloatRect Player::getBound()
 
 bool Player::isDead(std::vector<Ennemy*>* ennemyList)
 {
-    for(int i = 0; i<ennemyList->size(); i++)
+    for(unsigned int i = 0; i<ennemyList->size(); i++)
     {
         if((*ennemyList)[i]->getBound().intersects(s_player.getGlobalBounds()))
         {

@@ -65,7 +65,7 @@ AnimationGestion::AnimationGestion(RenderWindow *window)
 
 void AnimationGestion::updateAnimation()
 {
-    for(int i = 0; i<Animated.size(); i++)
+    for(unsigned int i = 0; i<Animated.size(); i++)
     {
         /* If the Animation is done, free the memory */
         if(!Animated[i]->updateAnimation())
