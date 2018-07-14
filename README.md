@@ -22,7 +22,7 @@ $ git clone https://github.com/Volham22/SFML-SpaceShooter.git
 ```
 Once the source code is downloaded, use cmake to create a makefile :
 ```
-$ cmake .
+$ cmake . -DCMAKE_BUILD_TYPE=Release
 ```
 Now you have to run the makefile to start building SpaceShooter !
 ```
