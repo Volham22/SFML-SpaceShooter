@@ -20,7 +20,6 @@ class Difficulty
     public:
         Difficulty();
         void updateDifficulty();
-        void drawEnnemies(RenderWindow &window);
         int getDifficulty();
         int getSpeed();
 
